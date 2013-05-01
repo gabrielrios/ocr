@@ -19,8 +19,7 @@ module OCR
 
       client = Savon::Client.new(:wsdl => 'http://www.free-ocr.co.uk/ocr.asmx?WSDL')
 
-      response = client.request(:analyze) do
-        soap.body = request
+      response = client.call(:analyze, message: request) do
       end
 
       return false if have_error? response.body
