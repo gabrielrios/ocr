@@ -17,7 +17,7 @@ module OCR
       }
       request[:username] = @username if @username
 
-      client = Savon::Client.new('http://www.free-ocr.co.uk/ocr.asmx?WSDL')
+      client = Savon::Client.new(:wsdl => 'http://www.free-ocr.co.uk/ocr.asmx?WSDL')
 
       response = client.request(:analyze) do
         soap.body = request

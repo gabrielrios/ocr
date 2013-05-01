@@ -42,7 +42,7 @@ module OCR
          HTTPI.log = false           # to total silent the logging.
         end
       end
-      client = Savon::Client.new('http://www.ocrwebservice.com/services/OCRWebService.asmx?WSDL')
+      client = Savon::Client.new(:wsdl => 'http://www.ocrwebservice.com/services/OCRWebService.asmx?WSDL')
       response = client.request(:ocr_web_service_recognize) do
         soap.body = request
       end
